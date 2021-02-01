@@ -29,17 +29,17 @@ public:
         address.sin_family = AF_INET;
         address.sin_port = htons( PORT );
         address_length = sizeof(address);
-        if(inet_pton(AF_INET, "127.0.0.1", &address.sin_addr)<=0)
+        if(inet_pton(AF_INET, "46.105.28.205", &address.sin_addr)<=0)
         {
             cout<<"[ERROR] : Invalid address\n";
         }
 
         create_connection();
 
-        file.open(".//Data//Client//client_text.txt", ios::out | ios::trunc | ios::binary);
+        file.open("android-chrome-512x512.png", ios::out | ios::trunc | ios::binary);
         if(file.is_open())
         {
-            cout<<"[LOG] : File Creted.\n";
+            cout<<"[LOG] : File created!\n";
         }
         else
         {
@@ -95,6 +95,7 @@ public:
 int main()
 {
     Client_socket C;
-    C.receive_file();
+    //C.receive_file();
+    C.transmit_file();
     return 0;
 }
