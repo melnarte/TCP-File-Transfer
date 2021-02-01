@@ -22,6 +22,7 @@ class Server_socket
     int address_length;
 
 public:
+
     Server_socket()
     {
         create_socket();
@@ -36,7 +37,7 @@ public:
         set_listen_set();
         accept_connection();
 
-        file.open(".//Data//Server//server_text.txt", ios::in | ios::binary);
+        file.open("data", ios::in | ios::binary);
         if(file.is_open())
         {
             cout<<"[LOG] : File is ready to Transmit.\n";
@@ -46,6 +47,12 @@ public:
             cout<<"[ERROR] : File loading failed, Exititng.\n";
             exit(EXIT_FAILURE);
         }
+    }
+
+    ~Server_socket()
+    {
+        close(current_socket_descriptor);
+        close(general_socket_descriptor);
     }
 
     void create_socket()
