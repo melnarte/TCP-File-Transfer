@@ -39,7 +39,7 @@ public:
         file.open("android-chrome-512x512.png", ios::out | ios::trunc | ios::binary);
         if(file.is_open())
         {
-            cout<<"[LOG] : File created!\n";
+            cout<<"[LOG] : File opened!\n";
         }
         else
         {
@@ -84,7 +84,7 @@ public:
         cout<<"[LOG] : Transmission Data Size "<<contents.length()<<" Bytes.\n";
 
         cout<<"[LOG] : Sending...\n";
-
+        cout<<contents.c_str()<<endl;
         int bytes_sent = send(current_socket_descriptor, contents.c_str(), contents.length(), 0 );
         cout<<"[LOG] : Transmitted Data Size "<<bytes_sent<<" Bytes.\n";
 
