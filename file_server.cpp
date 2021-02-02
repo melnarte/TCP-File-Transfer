@@ -36,12 +36,17 @@ public:
         bind_socket();
         set_listen_set();
         accept_connection();
-
-        file.open("data", ios::in | ios::binary);
+	
+        file.open("android-chrome-512x512.png", ios::in | ios::binary);
         if(file.is_open())
         {
             cout<<"[LOG] : File is ready to Transmit.\n";
-        }
+        begin = file.tellg();
+  file.seekg (0, ios::end);
+  end = file.tellg();
+  cout << "size is: " << (end-begin) << " bytes.\n";
+  
+}
         else
         {
             cout<<"[ERROR] : File loading failed, Exititng.\n";
